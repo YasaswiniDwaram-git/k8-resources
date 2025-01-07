@@ -11,4 +11,4 @@ spec:
     - name: nginx-port
       protocol: TCP
       port: 80
-      targetport: 80
+      targetPort: 80
