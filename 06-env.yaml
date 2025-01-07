@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: env-vars
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    env: 
+      - name: Project
+        value: practice
+        name: duration
+        value: "4months"
+        
