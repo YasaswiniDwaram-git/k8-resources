@@ -5,8 +5,7 @@ metadata:
 type: NodePort
 spec:
   selector:
-    practice: "2.5months"
-    Project: DevOps
+    name: yash
   ports:
     - name: nginx-port
       protocol: TCP
