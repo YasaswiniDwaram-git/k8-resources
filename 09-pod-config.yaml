@@ -11,9 +11,9 @@ spec:
           valueFrom:
             configMapKeyRef:
              name: nginx-config
-             key: start_date
-        - name: end
+             key: start
+        - name: ended_on
           valueFrom:
             configMapKeyRef:
              name: nginx-config
-             key: end_date
+             key: end
