@@ -4,8 +4,8 @@ metadata:
   name: nginx-annotations-service
 spec:
   selector:
-    practice: "2.5months"
-    Project: DevOps
+    Project: expense
+    env: dev
   ports:
     - protocol: TCP
       port: 80
