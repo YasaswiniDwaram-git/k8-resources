@@ -5,7 +5,8 @@ metadata:
 type: NodePort
 spec:
   selector:
-    name: yash
+    Project: expense
+    env: dev
   ports:
     - name: nginx-port
       protocol: TCP
