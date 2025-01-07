@@ -7,6 +7,7 @@ spec:
     Project: expense
     env: dev
   ports:
-    - protocol: TCP
+    - name: nginx-port
+      protocol: TCP
       port: 80
       targetPort: 80
