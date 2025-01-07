@@ -1,2 +1,12 @@
 apiVersion: v1
-kind: Annotations
+kind: Pod
+metadata:
+  name: annotations
+  annotations: 
+    Project: DevOps
+    myProfile: "https://github.com/YasaswiniDwaram-git/k8-resources.git"
+    practice: "2.5months"
+spec:
+  containers:
+  - name: nginx
+    image: nginx
