@@ -4,10 +4,11 @@ metadata:
   name: nginx-np
 type: NodePort
 spec:
-  selectors:
+  selector:
     practice: "2.5months"
     Project: DevOps
   ports:
-    - protocol: TCP
+    - name: nginx-port
+      protocol: TCP
       port: 80
       targetport: 80
