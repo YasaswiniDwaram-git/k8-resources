@@ -1,0 +1,8 @@
+apiVersion: v1
+Kind: ConfigMap
+metadata: 
+  name: nginx-config
+data:
+  start_date: "oct28"
+  end_date: "jan25"
+  project: "job_acquired"
