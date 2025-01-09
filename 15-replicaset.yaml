@@ -18,20 +18,20 @@ spec:
         tier: web
     spec:
       containers:
-        name: nginx
+      - name: nginx
         image: nginx
 ---
 kind: Service
 apiVersion: v1
 metadata:
-  name: nginx
+  name: nginx-service
 spec:
   selector:
     app: nginx
     tier: web
   ports:
-    name: nginx-port
-    port: 80
-    protocol: TCP
-    targetPort: 80
+   - name: nginx-port
+     protocol: TCP
+     port: 80
+     targetPort: 80
 
