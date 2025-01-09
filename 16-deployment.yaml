@@ -1,1 +1,39 @@
 apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deploy
+  labels:
+    tier: api
+    project: deploy
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      tier: api
+      project: deploy
+  template:
+    metadata:
+      labels:
+        tier: api
+        project: deploy
+        domain: dev
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: nginx-service
+spec:
+  selector:
+    app: nginx
+    tier: web
+  ports:
+   - name: nginx-port
+     protocol: TCP
+     port: 80
+     targetPort: 80
+      
+
