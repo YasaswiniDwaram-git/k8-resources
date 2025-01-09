@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata: 
+  name: nginx
+  labels:
+    app: nginx
+    tier: web
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+      tier: web
+  template:
+    metadata:
+      labels:
+        app: nginx
+        tier: web
+    spec:
+      containers:
+        name: nginx
+        image: nginx
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: nginx
+spec:
+  selector:
+    app: nginx
+    tier: web
+  ports:
+    name: nginx-port
+    port: 80
+    protocol: TCP
+    targetPort: 80
+
