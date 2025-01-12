@@ -14,6 +14,8 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: app
+  label:
+    purpose: ebs-dynamic
 spec:
   nodeSelector:
     topology.kubernetes.io/zone: us-east-1f
@@ -27,3 +29,18 @@ spec:
     - name: expense-dynamic
       persistentVolumeClaim:
         claimName: expense-dynamic
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: nginx
+spec:
+  type: LoadBalancer
+  selector:
+    purpose: ebs-dynamic
+  ports:
+  - name: nginx-svc-port
+    protocol: TCP
+    port: 80 # service port
+    targetPort: 80 # container port
+    nodePort: 30008
