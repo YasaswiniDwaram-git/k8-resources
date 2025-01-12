@@ -33,7 +33,7 @@ metadata:
     purpose: ebs-static
 spec:
   nodeSelector:
-    topology.kubernetes.io/zone: us-east-1b
+    topology.kubernetes.io/zone: us-east-1f
   containers: #docker run -d --name-nginx nginx
   - name: nginx
     image: nginx
