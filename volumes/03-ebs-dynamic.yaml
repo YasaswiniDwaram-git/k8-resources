@@ -5,7 +5,7 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
-  storageClassName: expense-ebs
+  storageClassName: "expense-ebs"
   resources:
     requests:
       storage: 2Gi
@@ -14,7 +14,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: app
-  label:
+  labels:
     purpose: ebs-dynamic
 spec:
   nodeSelector:
