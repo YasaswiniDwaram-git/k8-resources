@@ -40,9 +40,9 @@ spec:
     - name: ebs-static
       mountPath: /usr/share/nginx/html #we are mounting data to this path
    volumes:
-  - name: ebs-static
-    persistentVolumeClaim:
-      claimName: ebs-static-claim
+    - name: ebs-static
+      persistentVolumeClaim:
+       claimName: ebs-static-claim
 ---
 apiVersion: v1
 kind: Service
