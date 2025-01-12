@@ -28,11 +28,12 @@ spec:
 apiVersion: v1
 kind: Pod
 metadata:
-  name: nginx
+  name: ebs-static
   labels:
-    app: nginx
-    tier: web
+    purpose: ebs-static
 spec:
+  nodeSelector:
+    topology.kubernetes.io/zone: us-east-1b
   containers: #docker run -d --name-nginx nginx
   - name: nginx
     image: nginx
@@ -49,11 +50,8 @@ kind: Service
 metadata: 
   name: nginx
 spec:
-  nodeSelector:
-    topology.kubernetes.io/zone: us-east-1b
   selector:
-    app: nginx
-    tier: web
+    purpose: ebs-static
   ports:
     - name: nginx-port
       protocol: TCP
