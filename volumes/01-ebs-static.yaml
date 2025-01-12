@@ -32,6 +32,8 @@ metadata:
   labels:
     purpose: ebs-static
 spec:
+  nodeSelector:
+    topology.kubernetes.io/zone: us-east-1f
   containers: #docker run -d --name-nginx nginx
     - name: nginx
       image: nginx
@@ -48,6 +50,7 @@ kind: Service
 metadata: 
   name: nginx
 spec:
+  type: LoadBalancer
   selector:
     purpose: ebs-static
   ports:
@@ -55,4 +58,5 @@ spec:
       protocol: TCP
       port: 80
       targetPort: 80
+      nodePort: 30007
 
