@@ -24,3 +24,33 @@ spec:
   resources:
     requests:
       storage: 5Gi
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+  labels:
+    app: nginx
+    tier: web
+spec:
+  containers: #docker run -d --name-nginx nginx
+  - name: nginx
+    image: nginx
+    volumeMounts: #docker run -v hostpath:containerpath 
+    - name: ebs-static
+      mountPath: /usr/share/nginx/html #we are mounting data to this path
+---
+apiVersion: v1
+kind: Service
+metadata: 
+  name: nginx
+spec:
+  selector:
+    app: nginx
+    tier: web
+  ports:
+    - name: nginx-port
+      protocol: TCP
+      port: 80
+      targetPort: 80
+
