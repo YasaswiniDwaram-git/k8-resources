@@ -28,8 +28,8 @@ metadata:
   name: nginx-service
 spec:
   selector:
-    app: nginx
-    tier: web
+    tier: api
+    project: deploy
   ports:
    - name: nginx-port
      protocol: TCP
