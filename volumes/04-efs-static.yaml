@@ -58,4 +58,4 @@ spec:
       protocol: TCP
       port: 80
       targetPort: 80
-	  nodeport: 31866 #and open this nodeport in security grp from all
+	 # nodeport: 31866 #and open this nodeport in security grp from all
