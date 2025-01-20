@@ -1,0 +1,11 @@
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: efs-expense
+provisioner: efs.csi.aws.com
+parameters:
+  provisioningMode: efs-ap
+  fileSystemId: fs-037afe97b158088da
+  directoryPerms: "700"
+  basePath: "/expense"
+#access nodes are created in above basePath
