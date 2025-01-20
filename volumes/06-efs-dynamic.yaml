@@ -28,7 +28,7 @@ spec:
   volumes:
   - name: efs-expense
     persistentVolumeClaim:
-      claimName: efs-dynamix
+      claimName: efs-dynamic
 ---
 kind: Service
 apiVersion: v1
