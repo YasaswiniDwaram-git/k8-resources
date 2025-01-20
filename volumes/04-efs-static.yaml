@@ -45,17 +45,17 @@ spec:
     persistentVolumeClaim:
       claimName: efs-expense-claim
 ---
-apiVersion: v1
 kind: Service
-metadata: 
+apiVersion: v1
+metadata:
   name: nginx
 spec:
   type: LoadBalancer
   selector:
     purpose: efs-static
   ports:
-    - name: nginx-port
-      protocol: TCP
-      port: 80
-      targetPort: 80
-	 # nodeport: 31866 #and open this nodeport in security grp from all
+  - name: nginx-svc-port
+    protocol: TCP
+    port: 80 # service port
+    targetPort: 80 # container port
+    nodePort: 30007
